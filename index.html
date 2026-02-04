@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.A.N. - International Archaeology Network</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563eb'/><circle cx='50' cy='50' r='32' fill='none' stroke='white' stroke-width='2'/><ellipse cx='50' cy='50' rx='32' ry='10' fill='none' stroke='white' stroke-width='1.5'/><ellipse cx='50' cy='50' rx='10' ry='32' fill='none' stroke='white' stroke-width='1.5'/></svg>">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>I.A.N.</h1>
+                    <p>International Archaeology Network</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <span class="user-badge">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Dr. Archaeologist</span>
+                </span>
+                <span class="status-indicator online"></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Quick Actions</h3>
+                    <button class="btn btn-primary" onclick="openAddSiteModal()">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add New Site</span>
+                    </button>
+                    <button class="btn btn-warning" onclick="openAlertModal()">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Create Alert</span>
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Data Management</h3>
+                    <button class="btn btn-secondary" onclick="exportData()">
+                        <i class="fas fa-download"></i>
+                        <span>Export Data</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">
+                        <i class="fas fa-upload"></i>
+                        <span>Import Data</span>
+                    </button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(event)">
+                    <button class="btn btn-secondary" onclick="resetToDefaultSites()">
+                        <i class="fas fa-redo"></i>
+                        <span>Reset to Defaults</span>
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Statistics</h3>
+                    <div class="stats">
+                        <div class="stat-item stat-green">
+                            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="greenCount">0</span>
+                                <span class="stat-label">Secure</span>
+                            </div>
+                        </div>
+                        <div class="stat-item stat-blue">
+                            <div class="stat-icon"><i class="fas fa-landmark"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="blueCount">0</span>
+                                <span class="stat-label">UNESCO</span>
+                            </div>
+                        </div>
+                        <div class="stat-item stat-yellow">
+                            <div class="stat-icon"><i class="fas fa-exclamation-circle"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="yellowCount">0</span>
+                                <span class="stat-label">Caution</span>
+                            </div>
+                        </div>
+                        <div class="stat-item stat-red">
+                            <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="redCount">0</span>
+                                <span class="stat-label">Critical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Status Legend</h3>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-color green"></span>
+                            <span>Secure - No Risk</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color blue"></span>
+                            <span>UNESCO Heritage</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color yellow"></span>
+                            <span>Caution - Potential Risk</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color red"></span>
+                            <span>Critical - Emergency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Keyboard Shortcuts</h3>
+                    <div style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.8;">
+                        <div><kbd>Ctrl+N</kbd> New Site</div>
+                        <div><kbd>Ctrl+K</kbd> Search</div>
+                        <div><kbd>Esc</kbd> Close Modal</div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Map Section -->
+            <section class="map-section">
+                <div class="map-header">
+                    <h2>
+                        <i class="fas fa-map-marked-alt"></i>
+                        Global Archaeological Sites
+                    </h2>
+                    <div class="map-controls">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search sites..." class="search-input">
+                        </div>
+                        <button class="btn btn-small" onclick="resetMap()">
+                            <i class="fas fa-sync-alt"></i>
+                            Reset View
+                        </button>
+                    </div>
+                </div>
+                <div id="map"></div>
+            </section>
+
+            <!-- Sites List -->
+            <section class="sites-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-list-ul"></i>
+                        Archaeological Sites
+                    </h2>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <select id="filterStatus" onchange="filterSites()">
+                            <option value="all">All Status</option>
+                            <option value="green">Secure</option>
+                            <option value="blue">UNESCO</option>
+                            <option value="yellow">Caution</option>
+                            <option value="red">Critical</option>
+                        </select>
+                        <select id="sortBy" onchange="sortSites()">
+                            <option value="name">Sort: Name</option>
+                            <option value="country">Sort: Country</option>
+                            <option value="date">Sort: Date</option>
+                            <option value="status">Sort: Status</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-bottom: 1rem; padding: 0.75rem; background: var(--bg-tertiary); border-radius: 8px; font-size: 0.875rem; color: var(--text-secondary);">
+                    <i class="fas fa-info-circle"></i>
+                    Total: <strong id="totalSites">0</strong> sites
+                </div>
+                <div id="sitesList" class="sites-list"></div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Add Site Modal -->
+    <div id="addSiteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <i class="fas fa-plus-circle"></i>
+                    Add New Archaeological Site
+                </h2>
+                <span class="close" onclick="closeAddSiteModal()">&times;</span>
+            </div>
+            <form id="addSiteForm" onsubmit="addSite(event)">
+                <div class="form-group">
+                    <label>Site Name</label>
+                    <input type="text" name="name" required placeholder="e.g., Ancient City of Ephesus">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Latitude</label>
+                        <input type="number" name="lat" step="0.0001" required placeholder="37.9394">
+                    </div>
+                    <div class="form-group">
+                        <label>Longitude</label>
+                        <input type="number" name="lng" step="0.0001" required placeholder="27.3410">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Site Type</label>
+                    <select name="type" required>
+                        <option value="excavation">Excavation Site</option>
+                        <option value="museum">Museum</option>
+                        <option value="protection">Protected Area</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" name="country" required placeholder="e.g., Turkey">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select name="status" required>
+                        <option value="green">Secure - No Risk</option>
+                        <option value="blue">UNESCO World Heritage</option>
+                        <option value="yellow">Caution - Potential Risk</option>
+                        <option value="red">Critical - Emergency</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" rows="3" placeholder="Additional information about the site..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddSiteModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Site</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Create Alert Report
+                </h2>
+                <span class="close" onclick="closeAlertModal()">&times;</span>
+            </div>
+            <form id="alertForm" onsubmit="createAlert(event)">
+                <div class="form-group">
+                    <label>Select Site</label>
+                    <select name="siteId" id="alertSiteSelect" required>
+                        <option value="">Choose a site...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alert Level</label>
+                    <select name="alertStatus" required>
+                        <option value="yellow">Caution - Potential Risk</option>
+                        <option value="red">Critical - Emergency</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alert Reason</label>
+                    <textarea name="reason" rows="4" required placeholder="Describe the situation in detail..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAlertModal()">Cancel</button>
+                    <button type="submit" class="btn btn-warning">Submit Alert</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Site Details Modal -->
+    <div id="siteDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="detailsTitle">Site Details</h2>
+                <span class="close" onclick="closeSiteDetailsModal()">&times;</span>
+            </div>
+            <div id="siteDetailsContent"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

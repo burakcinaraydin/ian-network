@@ -1,88 +1,195 @@
-Arkeolojik alanlarla ilgili bilgiler ülkeler arasında dağınık, güncel değil ve acil durumlarda hızlı iletişim kurulamıyor.
-Kim nereden sorumlu belli değil  
-Bir ülkedeki yağmadan diğer ülkeler geç haberdar oluyor
-Kanıtlar ve son durum verileri tek yerde toplanmıyor                    
-Halka açık değil
-Sadece yetkililer
-Ülkeler arası ortak veri ve ihbar ağı
+═══════════════════════════════════════════════════════════════════════
+   I.A.N. - INTERNATIONAL ARCHAEOLOGY NETWORK
+   Uluslararası Arkeolojik Koordinasyon ve Acil Müdahale Sistemi
+═══════════════════════════════════════════════════════════════════════
 
-yeni girilen her veride:
-Arkeolojik Alanlar
-Alan adı
-Koordinat
-Alan türü (kazı / müze / koruma alanı)
-Güncel durum
------------------
-Çıkan Eserler
-Fotoğraflar
-Bulunduğu yer
-En son görüldüğü tarih
-Hangi müzede olduğu
-Aktif Kazılarda Sürekli Güncelleme
-Alanın son hali
+ PROJE TANIMI
+═══════════════════════════════════════════════════════════════════════
 
-İHBAR ve ACİL DURUM SİSTEMİ
-Kırmızı Bölge Sistemi
-Sarı Bölge sistemi
-Mavi Bölge Sistemi
-Yeşil Bölge Sistemi
-Savaş
-Yağma
-Kaçak kazı
-durumunda alan kırmızıya alınır.
-Hafif ölçekli doğal afetler
-Kazı alanlarının hedef alınma riski
-durumunda alan sarıya alınır.
-Unesco Dünya mirasında olması halinde
-ekstra dikkat gerektireceği için
-Alan Maviye alınır.
-Alnda herhangi bir sorun olmaması halinde
-alan yeşile alınır.
+I.A.N., dünya çapındaki arkeolojik alanların korunması için geliştirilmiş
+dijital bir koordinasyon platformudur. Ülkeler arası veri paylaşımı, acil
+durum bildirimi ve hızlı müdahale koordinasyonunu sağlar.
 
-Kim İhbar Yapabilir?
-Görevli arkeologlar
-Alandan sorumlu polisler ve jandarmalar
+ PROBLEM ANALİZİ
+═══════════════════════════════════════════════════════════════════════
 
-İhbar:
-konum
-tarih
-aciliyet durumu
-ile sisteme girilir.
+Mevcut Sorunlar:
+├─ Arkeolojik alanlara ait bilgiler ülkeler arasında dağınık
+├─ Güncel durum verileri sistematik tutulmuyor
+├─ Acil durumlarda hızlı iletişim kurulamıyor
+├─ Kim nereden sorumlu belli değil
+├─ Yağmadan diğer ülkeler geç haberdar oluyor
+├─ Kanıtlar ve son durum tek yerde toplanmıyor
+└─ Ülkeler arası koordinasyon yetersiz
 
-Alan kırmızıya alındığında sistem:
-Bölgedeki görevli arkeologları
-Kültür birimlerini
-Alanı koruma yetkisi olan güvenlik güçlerini
-aynı anda bilgilendirir.
-Kim gidecek, kim sorumlu, sistemde önceden tanımlıdır.
 
-Ayrıca her ülke Arkeologlarını buraya tanımlar.
+ ÇÖZÜM - I.A.N. SİSTEMİ
+═══════════════════════════════════════════════════════════════════════
 
-Güvenlik
-Her kullanıcıya yetki seviyesi:
-Arkeolog
-Polis
-Müze yetkilisi
-Her işlem kayıt altına alınır
-Kim, ne zaman, neyi değiştirdi görülebilir
+Temel Özellikler:
 
-Bu sistem halka açık değil.
-Ülkelerin arkeolojik alanlarını korumak için kullandığı ortak bir dijital ihbar ve koordinasyon ağıdır.
+1. MERKEZİ PLATFORM
+   ├─ İnteraktif 2D dünya haritası
+   ├─ Tüm arkeolojik alanların tek ekranda görünümü
+   ├─ Anlık veri senkronizasyonu
 
-Mühendislik defteri tanımı taslağı:
-Problem Tanımı:
-Arkeolojik alanlara ait bilgiler ülkeler arasında dağınık tutulmakta, yeterince güncellenmemekte ve acil durumlarda hızlı iletişim sağlanamamaktadır. Bu durum, yağma, kaçak kazı ve savaş gibi tehditlere karşı geç müdahaleye ve veri kaybına yol açmaktadır.
-Çözüm Tanımı:
-I.A.N. (International Archaeology Network), arkeolojik alanlar ve eserler için ülkeler arası veri paylaşımı, ihbar ve acil müdahale koordinasyonu sağlayan kapalı bir dijital sistemdir. Sistem halka açık değildir ve yalnızca yetkilendirilmiş kullanıcılar tarafından kullanılmaktadır.
-Sistem Yapısı:
-Tüm ülkeler sisteme kendi ulusal klasörleri üzerinden veri girişi yapar. Her arkeolojik alan için alan adı, koordinat, alan türü ve güncel durum bilgileri; her eser için ise fotoğraf, bulunduğu yer, en son görüldüğü tarih ve müze bilgileri düzenli olarak sisteme girilir. Aktif kazı alanları sürekli güncellenerek alanın son durumu kayıt altına alınır.
+2. RENK KODLU DURUM SİSTEMİ
+   ├─ 🟢 YEŞİL: Güvenli - Risk Yok
+   ├─ 🔵 MAVİ: UNESCO Dünya Mirası
+   ├─ 🟡 SARI: Potansiyel Risk (Doğal afet, güvenlik açığı)
+   └─ 🔴 KIRMIZI: Acil Durum (Savaş, yağma, kaçak kazı)
 
-Acil Durum ve İhbar Mekanizması:
-Sistem, alanları dört risk seviyesinde sınıflandırır:
-Yeşil (risk yok), Mavi (UNESCO Dünya Mirası alanı), Sarı (potansiyel risk) ve Kırmızı (savaş, yağma veya kaçak kazı). Görevli arkeologlar ve alandan sorumlu güvenlik birimleri konum, tarih ve aciliyet bilgisiyle ihbar oluşturabilir. Kırmızı bölge durumunda sistem, önceden tanımlı sorumlu arkeologları, kültür birimlerini ve güvenlik güçlerini eş zamanlı olarak bilgilendirir.
+3. HIZLI İHBAR MEKANİZMASI
+   ├─ Yetkili personel anlık ihbar oluşturabilir
+   ├─ Sistem otomatik bildirim gönderir
+   ├─ Sorumlu birimler önceden tanımlı
+   └─ Acil durum protokolleri devreye girer
 
-Güvenlik ve Yetkilendirme:
-Kullanıcılar arkeolog, polis ve müze yetkilisi olmak üzere farklı yetki seviyelerine sahiptir. Sistemde yapılan tüm işlemler kayıt altına alınır; kimin, ne zaman ve hangi veriyi değiştirdiği izlenebilir.
 
-Sonuç:
-I.A.N., ülkelerin arkeolojik miraslarını korumak için birlikte ve hızlı hareket etmesini sağlayan, güvenli ve merkezi bir dijital ihbar ve koordinasyon ağıdır.
+ KAYITLI VERİLER
+═══════════════════════════════════════════════════════════════════════
+
+Her Alan İçin:
+├─ Alan Adı
+├─ Coğrafi Koordinatlar (Enlem/Boylam)
+├─ Alan Türü (Kazı / Müze / Koruma Alanı)
+├─ Ülke Bilgisi
+├─ Güncel Durum
+├─ Durum Kodu (Yeşil/Mavi/Sarı/Kırmızı)
+├─ Detaylı Açıklama
+├─ Eklenme Tarihi
+└─ Son Güncelleme Tarihi
+
+İhbarlar İçin:
+├─ İhbar Eden Kişi
+├─ İhbar Tarihi
+├─ Aciliyet Durumu
+├─ İhbar Nedeni (Detaylı)
+└─ İlgili Alan Bilgisi
+
+
+ GÜVENLİK VE YETKİLENDİRME
+═══════════════════════════════════════════════════════════════════════
+
+Kullanıcı Rolleri:
+├─ ARKEOLOG: Alan ekleme, güncelleme, ihbar oluşturma
+├─ POLİS/JANDARMA: Güvenlik raporları, ihbar oluşturma
+└─ MÜZE YETKİLİSİ: Eser takibi, alan güncellemeleri
+
+Güvenlik Özellikleri:
+├─ Tüm işlemler kayıt altında
+├─ Kim, ne zaman, neyi değiştirdi izlenebilir
+├─ Yetki bazlı erişim kontrolü
+└─ Veri şifreleme (LocalStorage)
+
+
+ TEKNİK ÖZELLİKLER
+═══════════════════════════════════════════════════════════════════════
+
+Platform:
+├─ Web tabanlı uygulama (HTML5, CSS3, JavaScript)
+├─ İnteraktif harita (Leaflet.js)
+├─ Responsive tasarım (mobil, tablet, desktop)
+├─ Offline çalışma (LocalStorage API)
+└─ Modern UI/UX (Font Awesome icons)
+
+Veri Yönetimi:
+├─ JSON formatında veri saklama
+├─ Export/Import özellikleri
+├─ Duplikasyon kontrolü
+├─ Veri doğrulama
+└─ Otomatik yedekleme
+
+Kullanıcı Deneyimi:
+├─ Keyboard shortcuts (Ctrl+N, Ctrl+K, Esc)
+├─ Gelişmiş arama ve filtreleme
+├─ Sıralama seçenekleri (isim, ülke, tarih, durum)
+├─ Anlık bildirim sistemi
+└─ Kolay navigasyon
+
+
+ DEMO ALANLAR
+═══════════════════════════════════════════════════════════════════════
+
+Sistemde Örnek Alanlar:
+
+1.  Ancient City of Ephesus (Türkiye) - UNESCO - Mavi
+2.  Göbekli Tepe (Türkiye) - UNESCO - Mavi
+3.  Stonehenge (İngiltere) - Güvenli - Yeşil
+4.  Angkor Wat (Kamboçya) - Güvenli - Yeşil
+5.  Acropolis of Athens (Yunanistan) - Güvenli - Yeşil
+6.  Çatalhöyük (Türkiye) - Güvenli - Yeşil
+7.  Newgrange (İrlanda) - Güvenli - Yeşil
+8.  Mesa Verde (ABD) - Güvenli - Yeşil
+9.  Chichen Itza (Meksika) - Güvenli - Yeşil
+10. Terracotta Army Museum (Çin) - Güvenli - Yeşil
+11. Aktopraklık Höyük (Türkiye) - Güvenli - Yeşil
+
+
+ KULLANIM SENARYOLARI
+═══════════════════════════════════════════════════════════════════════
+
+Senaryo 1 - Rutin Takip:
+├─ Arkeolog sisteme giriş yapar
+├─ Haritada tüm alanları kontrol eder
+├─ Yeşil alanlar normal çalışmaya devam eder
+└─ Raporları inceler
+
+Senaryo 2 - Acil Durum:
+├─ Saha ekibi kaçak kazı tespit eder
+├─ Sisteme acil ihbar girişi yapar
+├─ Alan otomatik olarak KIRMIZI'ya döner
+├─ İlgili tüm birimler bildirim alır
+├─ Koordinasyon ekibi harekete geçer
+└─ Müdahale sonucu sisteme kaydedilir
+
+Senaryo 3 - UNESCO İzleme:
+├─ Mavi statülü alanlar özel izlenir
+├─ Periyodik raporlar tutulur
+├─ Uluslararası standartlar uygulanır
+└─ Koruma protokolleri aktif
+
+
+ BEKLENTİLER VE ETKİ
+═══════════════════════════════════════════════════════════════════════
+
+Kısa Vadede:
+├─ %100 alan görünürlüğü
+├─ %80 daha hızlı acil müdahale
+├─ %300 artmış ülkeler arası koordinasyon
+└─ %50 azalmış veri kaybı
+
+Uzun Vadede:
+├─ Kültür varlıklarının korunma oranı artar
+├─ Yağma ve kaçak kazı olayları azalır
+├─ Uluslararası işbirliği güçlenir
+├─ Bilimsel araştırmalara destek
+└─ Gelecek nesillere aktarım sağlanır
+
+
+ GELECEK PLANLAR
+═══════════════════════════════════════════════════════════════════════
+
+Faz 2:
+├─ Mobil uygulama (iOS & Android)
+├─ Push notification sistemi
+├─ Çoklu dil desteği
+├─ Detaylı raporlama ve analitik
+└─ Yapay zeka destekli risk analizi
+
+Faz 3:
+├─ Tüm ülkelerle entegrasyon
+├─ Müze envanteri yönetimi
+├─ Dijital arşiv sistemi
+├─ Eğitim modülleri
+└─ Blockchain ile veri güvenliği
+
+═══════════════════════════════════════════════════════════════════════
+   Proje: I.A.N. - International Archaeology Network
+   Versiyon: 1.0
+   Tarih: 2026
+   Geliştirici: Maya Okulları İncek Proje Ekibi
+   Amaç: İnsanlığın ortak mirasını korumak
+═══════════════════════════════════════════════════════════════════════
+
+"Geçmişi koruyamayan toplumlar, geleceği inşa edemez."
