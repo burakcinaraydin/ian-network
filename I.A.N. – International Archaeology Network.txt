@@ -1,0 +1,88 @@
+Arkeolojik alanlarla ilgili bilgiler ülkeler arasında dağınık, güncel değil ve acil durumlarda hızlı iletişim kurulamıyor.
+Kim nereden sorumlu belli değil  
+Bir ülkedeki yağmadan diğer ülkeler geç haberdar oluyor
+Kanıtlar ve son durum verileri tek yerde toplanmıyor                    
+Halka açık değil
+Sadece yetkililer
+Ülkeler arası ortak veri ve ihbar ağı
+
+yeni girilen her veride:
+Arkeolojik Alanlar
+Alan adı
+Koordinat
+Alan türü (kazı / müze / koruma alanı)
+Güncel durum
+-----------------
+Çıkan Eserler
+Fotoğraflar
+Bulunduğu yer
+En son görüldüğü tarih
+Hangi müzede olduğu
+Aktif Kazılarda Sürekli Güncelleme
+Alanın son hali
+
+İHBAR ve ACİL DURUM SİSTEMİ
+Kırmızı Bölge Sistemi
+Sarı Bölge sistemi
+Mavi Bölge Sistemi
+Yeşil Bölge Sistemi
+Savaş
+Yağma
+Kaçak kazı
+durumunda alan kırmızıya alınır.
+Hafif ölçekli doğal afetler
+Kazı alanlarının hedef alınma riski
+durumunda alan sarıya alınır.
+Unesco Dünya mirasında olması halinde
+ekstra dikkat gerektireceği için
+Alan Maviye alınır.
+Alnda herhangi bir sorun olmaması halinde
+alan yeşile alınır.
+
+Kim İhbar Yapabilir?
+Görevli arkeologlar
+Alandan sorumlu polisler ve jandarmalar
+
+İhbar:
+konum
+tarih
+aciliyet durumu
+ile sisteme girilir.
+
+Alan kırmızıya alındığında sistem:
+Bölgedeki görevli arkeologları
+Kültür birimlerini
+Alanı koruma yetkisi olan güvenlik güçlerini
+aynı anda bilgilendirir.
+Kim gidecek, kim sorumlu, sistemde önceden tanımlıdır.
+
+Ayrıca her ülke Arkeologlarını buraya tanımlar.
+
+Güvenlik
+Her kullanıcıya yetki seviyesi:
+Arkeolog
+Polis
+Müze yetkilisi
+Her işlem kayıt altına alınır
+Kim, ne zaman, neyi değiştirdi görülebilir
+
+Bu sistem halka açık değil.
+Ülkelerin arkeolojik alanlarını korumak için kullandığı ortak bir dijital ihbar ve koordinasyon ağıdır.
+
+Mühendislik defteri tanımı taslağı:
+Problem Tanımı:
+Arkeolojik alanlara ait bilgiler ülkeler arasında dağınık tutulmakta, yeterince güncellenmemekte ve acil durumlarda hızlı iletişim sağlanamamaktadır. Bu durum, yağma, kaçak kazı ve savaş gibi tehditlere karşı geç müdahaleye ve veri kaybına yol açmaktadır.
+Çözüm Tanımı:
+I.A.N. (International Archaeology Network), arkeolojik alanlar ve eserler için ülkeler arası veri paylaşımı, ihbar ve acil müdahale koordinasyonu sağlayan kapalı bir dijital sistemdir. Sistem halka açık değildir ve yalnızca yetkilendirilmiş kullanıcılar tarafından kullanılmaktadır.
+Sistem Yapısı:
+Tüm ülkeler sisteme kendi ulusal klasörleri üzerinden veri girişi yapar. Her arkeolojik alan için alan adı, koordinat, alan türü ve güncel durum bilgileri; her eser için ise fotoğraf, bulunduğu yer, en son görüldüğü tarih ve müze bilgileri düzenli olarak sisteme girilir. Aktif kazı alanları sürekli güncellenerek alanın son durumu kayıt altına alınır.
+
+Acil Durum ve İhbar Mekanizması:
+Sistem, alanları dört risk seviyesinde sınıflandırır:
+Yeşil (risk yok), Mavi (UNESCO Dünya Mirası alanı), Sarı (potansiyel risk) ve Kırmızı (savaş, yağma veya kaçak kazı). Görevli arkeologlar ve alandan sorumlu güvenlik birimleri konum, tarih ve aciliyet bilgisiyle ihbar oluşturabilir. Kırmızı bölge durumunda sistem, önceden tanımlı sorumlu arkeologları, kültür birimlerini ve güvenlik güçlerini eş zamanlı olarak bilgilendirir.
+
+Güvenlik ve Yetkilendirme:
+Kullanıcılar arkeolog, polis ve müze yetkilisi olmak üzere farklı yetki seviyelerine sahiptir. Sistemde yapılan tüm işlemler kayıt altına alınır; kimin, ne zaman ve hangi veriyi değiştirdiği izlenebilir.
+
+Sonuç:
+I.A.N., ülkelerin arkeolojik miraslarını korumak için birlikte ve hızlı hareket etmesini sağlayan, güvenli ve merkezi bir dijital ihbar ve koordinasyon ağıdır.
