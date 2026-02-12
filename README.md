@@ -166,7 +166,8 @@ Sistem 11 örnek arkeolojik alan ile gelir:
 
 **Maya Okulları İncek Yerleşkesi Proje Ekibi**
 
-- GitHub: [@burakcinaraydin](https://github.com/burakcinaraydin)[FatalbreakCpp](https://github.com/FatalbreakCpp)
+- GitHub: [@burakcinaraydin](https://github.com/burakcinaraydin),
+[FatalbreakCpp](https://github.com/FatalbreakCpp)
 
 ---
 
