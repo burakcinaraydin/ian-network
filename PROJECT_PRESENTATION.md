@@ -209,4 +209,4 @@ Kültür varlıklarının korunması sadece geçmişimizi korumak değil, gelece
 
 ---
 
-*“Tarihini bilmeyen bir millet, yok olmaya mahkûmdur.” - M. Kemal Atatürk*
+*"Geçmişini bilmeyen milletler, yok olmaya mahkûmdur." - M. Kemal Atatürk*

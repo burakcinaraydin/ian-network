@@ -212,7 +212,7 @@ Uluslararası Arkeolojik Koordinasyon ve Acil Müdahale Sistemi.
 
 Bu proje, kültürel mirasın korunmasına dikkat çekmek ve teknolojinin sosyal fayda için nasıl kullanılabileceğini göstermek amacıyla geliştirilmiştir.
 
-> "Geçmişi koruyamayan toplumlar, geleceği inşa edemez."
+> "Geçmişini bilmeyen milletler, yok olmaya mahkûmdur." - M. Kemal Atatürk
 
 ---
 
