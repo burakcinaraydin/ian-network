@@ -209,4 +209,4 @@ Kültür varlıklarının korunması sadece geçmişimizi korumak değil, gelece
 
 ---
 
-*"Geçmişini bilmeyen milletler, yok olmaya mahkûmdur." - M. Kemal Atatürk*
+*"Hayatta en hakiki mürşit ilimdir." - M. Kemal Atatürk*
