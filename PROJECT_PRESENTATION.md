@@ -1,10 +1,20 @@
 # I.A.N. - International Archaeology Network
 
+<div align="center">
+
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)
+![Status](https://img.shields.io/badge/status-Active-success)
+
+**Uluslararası Arkeolojik Koordinasyon ve Acil Müdahale Sistemi**
+
+</div>
+
 ---
 
 ## Proje Özeti
 
-**I.A.N. (International Archaeology Network)**, dünya çapındaki arkeolojik alanların korunması için ülkeler arası koordinasyon ve acil müdahale sistemidir.
+**I.A.N. (International Archaeology Network)**, dünya çapındaki arkeolojik alanların korunması için ülkeler arası koordinasyon ve acil müdahale sağlayan bir web platformudur.
 
 ---
 
@@ -190,10 +200,12 @@ Kültür varlıklarının korunması sadece geçmişimizi korumak değil, gelece
 
 ---
 
-**Proje Sahibi**: Bilim Kahramanları Derneği/First Lego Leauge Maya Okulları incek turnuva ekibi
+**Proje Sahibi**: Maya Okulları İncek Yerleşkesi Proje Ekibi
 **Tarih**: 2026
-**Versiyon**: 1.1
-**Lisans**: Educational Project
+**Versiyon**: 2.0
+**Lisans**: Özel İnceleme Lisansı (Study-Only License) - Tüm Hakları Saklıdır
+**Kullanım Koşulları**: İnceleme ve eğitim amaçlı kullanım - Üretim ortamı, portfolyo ve ticari kullanım yasaktır
+**GitHub**: [burakcinaraydin/ian-network](https://github.com/burakcinaraydin/ian-network)
 
 ---
 

@@ -186,10 +186,10 @@ Faz 3:
 
 ═══════════════════════════════════════════════════════════════════════
    Proje: I.A.N. - International Archaeology Network
-   Versiyon: 1.0
+   Versiyon: 2.0
    Tarih: 2026
    Geliştirici: Maya Okulları İncek Proje Ekibi
    Amaç: İnsanlığın ortak mirasını korumak
 ═══════════════════════════════════════════════════════════════════════
 
-"Geçmişi koruyamayan toplumlar, geleceği inşa edemez."
+“Geçmişini bilmeyen milletler, yok olmaya mahkûmdur.” - M. Kemal Atatürk

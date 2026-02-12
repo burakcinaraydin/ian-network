@@ -1,0 +1,145 @@
+ÖZEL İNCELEME LİSANSI (STUDY-ONLY LICENSE)
+
+Copyright © 2026 Maya Okulları İncek Yerleşkesi Proje Ekibi
+Tüm Hakları Saklıdır | All Rights Reserved
+
+================================================================================
+
+LİSANS KAPSAMI
+
+Bu yazılımın kaynak kodu, eğitim ve akademik inceleme amacıyla kamuya açık
+olarak paylaşılmaktadır. Aşağıda belirtilen kullanım koşulları, bu yazılımın
+tüm kopyaları ve türevleri için geçerlidir.
+
+================================================================================
+
+İZİN VERİLEN KULLANIM ALANLARI
+
+1. GÖRÜNTÜLEME VE İNDİRME
+   • Kaynak kodun GitHub platformu üzerinden görüntülenmesi
+   • Projenin yerel geliştirme ortamına indirilmesi
+   • Yerel sistemde inceleme amaçlı çalıştırılması
+
+2. EĞİTİM VE ARAŞTIRMA
+   • Eğitim amaçlı kod analizi ve inceleme
+   • Yazılım mimarisinin akademik çalışmalarda incelenmesi
+   • Teknik yaklaşımların öğrenilmesi
+
+3. REFERANS KULLANIM
+   • Akademik yayınlarda kaynak olarak gösterilmesi
+   • Eğitim kurumlarında ders materyali olarak kullanılması
+   • Teknik dokümantasyonlarda referans verilmesi
+
+================================================================================
+
+YASAK KULLANIM ALANLARI
+
+1. TİCARİ KULLANIM
+   Projenin doğrudan veya dolaylı olarak ticari amaçlarla kullanımı,
+   satışı, kiralanması veya lisanslanması kesinlikle yasaktır.
+
+2. PROJE ENTEGRASYONU
+   Kaynak kodun tamamının veya herhangi bir bölümünün başka yazılım
+   projelerine dahil edilmesi, entegre edilmesi veya uyarlanması yasaktır.
+
+3. PORTFOLYO VE ÖZGEÇMİŞ
+   Projenin kişisel portfolyoda, profesyonel özgeçmişte veya iş
+   başvurularında kendi çalışması olarak sunulması yasaktır.
+
+4. YARIŞMA KATILIMI
+   Projenin herhangi bir yarışma, etkinlik veya organizasyonda kendi
+   çalışması olarak sunulması kesinlikle yasaktır.
+
+5. TÜREV ESER OLUŞTURMA VE DAĞITIM
+   • Kaynak kodun değiştirilmesi ve yeniden dağıtılması
+   • Türev eserler oluşturulması ve paylaşılması
+   • Fork yapılarak geliştirme ve yayınlanması
+   • Kodun başka lisanslar altında dağıtılması
+
+6. ÜÇ
+ÜNCÜ TARAF KULLANIMI
+   Projenin üçüncü kişi veya kuruluşlara satılması, kiralanması,
+   lisanslanması veya herhangi bir şekilde devredilmesi yasaktır.
+
+================================================================================
+
+KULLANIM SENARYOLARI VE ÖRNEKLER
+
+✅ İZİN VERİLEN KULLANIM:
+   • Projeyi indirip localhost'ta çalıştırarak kod yapısını incelemek
+   • Kullanılan teknolojileri ve tasarım desenlerini öğrenmek
+   • Akademik araştırmada referans olarak kullanmak
+   • Ders materyali olarak sınıfta göstermek
+
+❌ YASAK KULLANIM:
+   • Kodun tamamını veya bir kısmını kendi web sitenizde kullanmak
+   • Projeyi kendi portfolyonuzda kendi çalışmanız olarak göstermek
+   • Kodları değiştirip başka bir isimle yayınlamak
+   • Benzer özelliklere sahip ticari bir ürün geliştirmede kullanmak
+   • Kodları başka bir yarışmada sunmak
+
+================================================================================
+
+TELIF HAKKI İHLALİ VE YAPTIRI MLAR
+
+Bu lisans koşullarının ihlali, telif hakkı yasalarına aykırılık teşkil eder
+ve aşağıdaki yasal sonuçları doğurabilir:
+
+1. HUKUK İ YAPTIR IMLAR
+   • Haksız kullanımın durdurulması talebi (ihtiyati tedbir)
+   • Maddi tazminat talebi
+   • Manevi tazminat talebi
+   • Avukatlık ücreti ve yargılama giderleri talebi
+
+2. CEZA İ YAPTIR IMLAR
+   5846 sayılı Fikir ve Sanat Eserleri Kanunu uyarınca:
+   • 2-4 yıl hapis cezası
+   • Adli para cezası
+   • Kamu davası açılması
+
+3. İDARİ YAPTIR IMLAR
+   • İhlal içeriğinin yayından kaldırılması talebi
+   • Alan adı tescilinin iptali
+   • Hosting hizmetinin sonlandırılması
+
+================================================================================
+
+SORUMLULUK REDDİ
+
+Bu yazılım "OLDUĞU GİBİ" (AS IS) sunulmaktadır. Telif hakkı sahipleri,
+açık veya zımni hiçbir garanti vermemektedir. Bu yazılımın kullanımından
+doğabilecek her türlü doğrudan veya dolaylı zarar, kayıp veya masraftan
+telif hakkı sahipleri sorumlu tutulamaz.
+
+Yazılım:
+• SATILABİLİRLİK garantisi vermemektedir
+• BELİRLİ BİR AMACA UYGUNLUK garantisi vermemektedir
+• HATASIZ ÇALIŞMA garantisi vermemektedir
+• VERİ KAYBI OLMAYACAĞI garantisi vermemektedir
+
+================================================================================
+
+LİSANS DEĞİŞİKLİKLERİ
+
+Telif hakkı sahipleri, bu lisans koşullarını önceden haber vermeksizin
+değiştirme hakkını saklı tutar. Güncel lisans metnine her zaman GitHub
+deposundan erişilebilir.
+
+================================================================================
+
+İLETİŞİM VE İZİN TALEPLERİ
+
+Bu lisans kapsamı dışında kullanım izni talep etmek veya lisans hakkında
+soru sormak için GitHub Issues bölümünden iletişime geçilebilir.
+
+Ticari kullanım veya özel lisanslama talepleri değerlendirilebilir.
+Ancak standart olarak bu yazılım yalnızca inceleme amaçlıdır.
+
+================================================================================
+
+© 2026 Maya Okulları İncek Yerleşkesi Proje Ekibi
+Tüm Hakları Saklıdır
+
+Lisans Türü: Özel İnceleme Lisansı (Study-Only License)
+Lisans Versiyonu: 1.0
+Son Güncelleme: 2026

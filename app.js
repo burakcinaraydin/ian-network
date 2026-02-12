@@ -48,13 +48,30 @@ function initMap() {
 
 // Load Sites from LocalStorage
 function loadSites() {
-    const storedSites = localStorage.getItem('ian_sites');
+    try {
+        const storedSites = localStorage.getItem('ian_sites');
 
-    if (storedSites) {
-        sites = JSON.parse(storedSites);
-    } else {
-        // Initialize with diverse sample data
-        sites = [
+        if (storedSites) {
+            sites = JSON.parse(storedSites);
+            // Validate data structure
+            if (!Array.isArray(sites)) {
+                throw new Error('Invalid data structure');
+            }
+        } else {
+            initializeDefaultSites();
+        }
+    } catch (error) {
+        console.error('Error loading sites:', error);
+        initializeDefaultSites();
+    }
+
+    displayMarkers();
+}
+
+// Initialize Default Sites
+function initializeDefaultSites() {
+    // Initialize with diverse sample data
+    sites = [
             {
                 id: generateId(),
                 name: 'Ancient City of Ephesus',
@@ -188,15 +205,17 @@ function loadSites() {
                 lastUpdate: new Date().toISOString()
             }
         ];
-        saveSites();
-    }
-
-    displayMarkers();
+    saveSites();
 }
 
 // Save Sites to LocalStorage
 function saveSites() {
-    localStorage.setItem('ian_sites', JSON.stringify(sites));
+    try {
+        localStorage.setItem('ian_sites', JSON.stringify(sites));
+    } catch (error) {
+        console.error('Error saving sites:', error);
+        showNotification('Failed to save data. Storage might be full.', 'warning');
+    }
 }
 
 // Generate Unique ID
@@ -206,12 +225,22 @@ function generateId() {
 
 // Display Markers on Map
 function displayMarkers() {
-    // Clear existing markers
-    markers.forEach(marker => map.removeLayer(marker));
+    // Clear existing markers efficiently
+    markers.forEach(marker => {
+        try {
+            map.removeLayer(marker);
+        } catch (error) {
+            console.warn('Error removing marker:', error);
+        }
+    });
     markers = [];
 
-    // Add new markers
+    // Add new markers with validation
     sites.forEach(site => {
+        if (!site || typeof site.lat !== 'number' || typeof site.lng !== 'number') {
+            console.warn('Invalid site data:', site);
+            return;
+        }
         const color = getMarkerColor(site.status);
 
         const marker = L.circleMarker([site.lat, site.lng], {
@@ -278,34 +307,50 @@ function getStatusLabel(status) {
     return labels[status] || status;
 }
 
-// Update Statistics
+// Update Statistics - Optimized to single loop
 function updateStats() {
-    const stats = {
-        green: sites.filter(s => s.status === 'green').length,
-        blue: sites.filter(s => s.status === 'blue').length,
-        yellow: sites.filter(s => s.status === 'yellow').length,
-        red: sites.filter(s => s.status === 'red').length
+    const stats = { green: 0, blue: 0, yellow: 0, red: 0 };
+
+    // Single loop instead of 4 separate filters
+    sites.forEach(site => {
+        if (stats.hasOwnProperty(site.status)) {
+            stats[site.status]++;
+        }
+    });
+
+    // Batch DOM updates
+    const elements = {
+        greenCount: stats.green,
+        blueCount: stats.blue,
+        yellowCount: stats.yellow,
+        redCount: stats.red
     };
 
-    document.getElementById('greenCount').textContent = stats.green;
-    document.getElementById('blueCount').textContent = stats.blue;
-    document.getElementById('yellowCount').textContent = stats.yellow;
-    document.getElementById('redCount').textContent = stats.red;
+    Object.keys(elements).forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.textContent = elements[id];
+        }
+    });
 }
 
-// Render Sites List
+// Render Sites List - Optimized
 function renderSitesList(filteredSites = null) {
     const sitesListContainer = document.getElementById('sitesList');
+    const totalSitesElement = document.getElementById('totalSites');
     const sitesToRender = filteredSites || sites;
 
     // Update total count
-    document.getElementById('totalSites').textContent = sitesToRender.length;
+    if (totalSitesElement) {
+        totalSitesElement.textContent = sitesToRender.length;
+    }
 
     if (sitesToRender.length === 0) {
         sitesListContainer.innerHTML = '<p style="text-align: center; color: #64748b; padding: 2rem;">No sites found</p>';
         return;
     }
 
+    // Render sites efficiently
     sitesListContainer.innerHTML = sitesToRender.map(site => `
         <div class="site-card status-${site.status}" onclick="showSiteDetails('${site.id}')">
             <h4>${site.name}</h4>
@@ -352,13 +397,24 @@ function filterSites() {
     sortSites(); // Use sorting function which already handles filtering
 }
 
-// Search Setup
+// Debounce function for better performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Search Setup with debouncing
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
 
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-
+    const performSearch = debounce((searchTerm) => {
         if (searchTerm === '') {
             renderSitesList();
             return;
@@ -371,6 +427,11 @@ function setupSearch() {
         );
 
         renderSitesList(filtered);
+    }, 300);
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        performSearch(searchTerm);
     });
 }
 
@@ -598,10 +659,29 @@ function deleteSite(siteId) {
     }
 }
 
-// Notification System
+// Notification System - Memory safe
+let notificationStyle = null;
+
 function showNotification(message, type = 'info') {
+    // Add animation style only once
+    if (!notificationStyle) {
+        notificationStyle = document.createElement('style');
+        notificationStyle.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(notificationStyle);
+    }
+
     // Create notification element
     const notification = document.createElement('div');
+    notification.className = 'ian-notification';
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -619,84 +699,137 @@ function showNotification(message, type = 'info') {
         line-height: 1.5;
     `;
 
+    const icon = type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle';
+    const iconColor = type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#2563eb';
+
     notification.innerHTML = `
         <div style="display: flex; align-items: start; gap: 0.75rem;">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'}"
-               style="color: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#2563eb'}; font-size: 1.25rem;"></i>
+            <i class="fas ${icon}" style="color: ${iconColor}; font-size: 1.25rem;"></i>
             <p style="margin: 0; flex: 1;">${message}</p>
-            <button onclick="this.parentElement.parentElement.remove()"
-                    style="border: none; background: none; cursor: pointer; color: #64748b; font-size: 1.25rem; padding: 0; line-height: 1;">
+            <button class="notification-close" style="border: none; background: none; cursor: pointer; color: #64748b; font-size: 1.25rem; padding: 0; line-height: 1;">
                 &times;
             </button>
         </div>
     `;
 
-    // Add animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // Close button handler
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => removeNotification(notification));
 
     document.body.appendChild(notification);
 
     // Auto remove after 5 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideIn 0.3s ease reverse';
-        setTimeout(() => notification.remove(), 300);
+    const timeoutId = setTimeout(() => {
+        removeNotification(notification);
     }, 5000);
+
+    // Store timeout ID for cleanup
+    notification.dataset.timeoutId = timeoutId;
 }
 
-// Export Data
+function removeNotification(notification) {
+    if (!notification || !notification.parentElement) return;
+
+    // Clear timeout if exists
+    if (notification.dataset.timeoutId) {
+        clearTimeout(parseInt(notification.dataset.timeoutId));
+    }
+
+    notification.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 300);
+}
+
+// Export Data - Memory safe
 function exportData() {
-    const dataStr = JSON.stringify(sites, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `IAN_Sites_Export_${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-    showNotification('Data exported successfully!', 'success');
+    try {
+        const dataStr = JSON.stringify(sites, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `IAN_Sites_Export_${new Date().toISOString().split('T')[0]}.json`;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+
+        // Clean up immediately
+        setTimeout(() => {
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }, 100);
+
+        showNotification('Data exported successfully!', 'success');
+    } catch (error) {
+        console.error('Export error:', error);
+        showNotification('Failed to export data.', 'warning');
+    }
 }
 
-// Import Data
+// Import Data - Enhanced validation
 function importData(event) {
     const file = event.target.files[0];
     if (!file) return;
 
+    // File size check (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        showNotification('File too large. Maximum size is 5MB.', 'warning');
+        event.target.value = '';
+        return;
+    }
+
     const reader = new FileReader();
+
+    reader.onerror = function() {
+        showNotification('Error reading file.', 'warning');
+        event.target.value = '';
+    };
+
     reader.onload = function(e) {
         try {
             const importedSites = JSON.parse(e.target.result);
 
             if (!Array.isArray(importedSites)) {
-                throw new Error('Invalid data format');
+                throw new Error('Invalid data format - expected an array');
             }
 
-            // Validate data structure
-            const isValid = importedSites.every(site =>
-                site.name && site.lat && site.lng && site.country && site.status
-            );
-
-            if (!isValid) {
-                throw new Error('Invalid site data structure');
+            if (importedSites.length === 0) {
+                throw new Error('No sites found in file');
             }
 
-            // Merge with existing data (avoid duplicates by name)
-            const existingNames = new Set(sites.map(s => s.name));
-            const newSites = importedSites.filter(s => !existingNames.has(s.name));
+            // Validate each site thoroughly
+            const validSites = importedSites.filter(site => {
+                return site &&
+                       typeof site.name === 'string' && site.name.trim() !== '' &&
+                       typeof site.lat === 'number' && !isNaN(site.lat) &&
+                       typeof site.lng === 'number' && !isNaN(site.lng) &&
+                       typeof site.country === 'string' && site.country.trim() !== '' &&
+                       ['green', 'blue', 'yellow', 'red'].includes(site.status);
+            });
+
+            if (validSites.length === 0) {
+                throw new Error('No valid sites found in file');
+            }
+
+            // Merge with existing data (avoid duplicates)
+            const existingNames = new Set(sites.map(s => s.name.toLowerCase()));
+            const newSites = validSites.filter(s => !existingNames.has(s.name.toLowerCase()));
+
+            if (newSites.length === 0) {
+                showNotification('All sites already exist in the system.', 'info');
+                event.target.value = '';
+                return;
+            }
+
+            // Add timestamps if missing
+            newSites.forEach(site => {
+                if (!site.id) site.id = generateId();
+                if (!site.dateAdded) site.dateAdded = new Date().toISOString();
+                if (!site.lastUpdate) site.lastUpdate = new Date().toISOString();
+            });
 
             sites = [...sites, ...newSites];
             saveSites();
@@ -704,13 +837,22 @@ function importData(event) {
             updateStats();
             renderSitesList();
 
-            showNotification(`Successfully imported ${newSites.length} new sites!`, 'success');
+            const skipped = importedSites.length - validSites.length;
+            let message = `Successfully imported ${newSites.length} new sites!`;
+            if (skipped > 0) {
+                message += ` (${skipped} invalid entries skipped)`;
+            }
+
+            showNotification(message, 'success');
         } catch (error) {
+            console.error('Import error:', error);
             showNotification('Error importing data: ' + error.message, 'warning');
+        } finally {
+            event.target.value = ''; // Reset file input
         }
     };
+
     reader.readAsText(file);
-    event.target.value = ''; // Reset file input
 }
 
 // Reset to Default Sites
@@ -724,13 +866,16 @@ function resetToDefaultSites() {
     }
 }
 
-// Close modals when clicking outside
-window.onclick = function(event) {
+// Close modals when clicking outside - Optimized
+(function setupModalCloseHandlers() {
     const modals = ['addSiteModal', 'alertModal', 'siteDetailsModal'];
-    modals.forEach(modalId => {
-        const modal = document.getElementById(modalId);
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
+
+    window.addEventListener('click', function(event) {
+        modals.forEach(modalId => {
+            const modal = document.getElementById(modalId);
+            if (modal && event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     });
-}
+})();

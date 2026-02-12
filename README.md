@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.0-blue)
-![License](https://img.shields.io/badge/license-Educational-green)
-![Status](https://img.shields.io/badge/status-Active-success)
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)
+![Status](https://img.shields.io/badge/usage-View%20Only-orange)
 
 **Uluslararası Arkeolojik Koordinasyon ve Acil Müdahale Sistemi**
 
@@ -25,42 +25,6 @@ Arkeolojik mirasın korunması için:
 - Ülkeler arası hızlı iletişim sağlamak
 - Acil durumlarda koordine müdahale etmek
 - Yağma ve kaçak kazılara karşı erken uyarı sistemi kurmak
-
----
-
-## Önemli Notlar
-
-### Proje Kapsamı
-
-Bu proje **eğitim amaçlı** geliştirilmiş bir okul projesidir ve aşağıdaki koşullara tabidir:
-
-- **Eğitim Amaçlı**: Okullar, üniversiteler ve eğitim kurumları tarafından kullanılabilir
-- **Portfolyo**: Kişisel portfolyo ve özgeçmişlerde gösterilebilir
-- **Araştırma**: Akademik araştırmalarda referans olarak kullanılabilir
-- **First LEGO League**: Bu proje FLL yarışmasında kullanılmak üzere tasarlanmamıştır
-- **Ticari Kullanım**: Ticari amaçlarla kullanılamaz
-- **Üçüncü Parti Yarışmalar**: Başka yarışmalarda izinsiz kullanılamaz
-
-### Telif Hakları ve Kullanım
-
-```
-© 2026 First Lego Leauge Maya incek proje ekibi- Tüm hakları saklıdır.
-
-Bu projenin kaynak kodu, tasarımı, konsepti ve dokümantasyonu
-telif hakkı koruması altındadır.
-
-İzinsiz çoğaltma, dağıtma, değiştirme veya türev eser oluşturma
-yasaktır. Eğitim amaçlı kullanım için lütfen iletişime geçiniz.
-```
-
-### Lisans Bilgileri
-
-Bu proje **özel eğitim lisansı** altında paylaşılmıştır:
-- Kaynak kodu incelenebilir (sadece öğrenme amaçlı)
-- Doğrudan kopyalama yapılamaz
-- Yarışmalarda kullanılamaz (FLL, vb.)
-- Ticari kullanım yasaktır
-- Referans gösterilmesi zorunludur
 
 ---
 
@@ -152,8 +116,9 @@ ian-network/
 ├── styles.css                      # Stil dosyası
 ├── app.js                          # JavaScript mantığı
 ├── README.md                       # Bu dosya
-├── PROJECT_PRESENTATION.md         # Jüri sunumu
-├── I.A.N. – International Archaeology Network.txt  # Proje detayları
+├── PROJECT_PRESENTATION.md         # Proje sunumu ve detayları
+├── LICENSE                         # CC BY-NC 4.0 Lisansı
+├── I.A.N. – International Archaeology Network.txt  # Proje dokümantasyonu
 └── .git/                          # Git deposu
 ```
 
@@ -179,25 +144,6 @@ Sistem 11 örnek arkeolojik alan ile gelir:
 
 ---
 
-## Eğitim Amaçlı Kullanım
-
-### Öğrenciler İçin
-Bu proje aşağıdaki konularda örnek teşkil eder:
-- Web geliştirme (HTML, CSS, JavaScript)
-- Harita entegrasyonu (Leaflet.js)
-- LocalStorage kullanımı
-- Responsive tasarım
-- UI/UX prensipleri
-
-### Öğretmenler İçin
-Sınıfta kullanım senaryoları:
-- Web teknolojileri dersleri
-- Proje yönetimi örnekleri
-- Problem çözme yaklaşımları
-- Sosyal etki projeleri
-
----
-
 ## Gelecek Planları
 
 ### Faz 2 (Planlanan)
@@ -218,31 +164,37 @@ Sınıfta kullanım senaryoları:
 
 ## Geliştirici
 
-**Maya Okulları İncek Proje Ekibi**
+**Maya Okulları İncek Yerleşkesi Proje Ekibi**
 
-- GitHub: [@burakcinaraydin][FatalbreakCpp]
+- GitHub: [@burakcinaraydin](https://github.com/burakcinaraydin)[FatalbreakCpp](https://github.com/FatalbreakCpp)
 
 ---
 
 ## Katkı
 
-Bu proje şu an için **Açık kaynak** bir eğitim projesidir. Katkı kabul edilmemektedir.
+**Bu proje kapalı geliştirme sürecine tabidir. Harici katkılar kabul edilmemektedir.**
 
-Sorularınız için:
-1. GitHub Issues kullanabilirsiniz
-2. Doğrudan iletişime geçebilirsiniz
-3. Dokümantasyonu inceleyebilirsiniz
+### Proje Kullanım Politikası:
+- ✅ Yerel geliştirme ortamında inceleme amaçlı çalıştırılabilir
+- ✅ Eğitim ve araştırma amacıyla kod analizi yapılabilir
+- ❌ Üretim ortamlarında veya kişisel projelerde kullanım yasaktır
+- ❌ Kaynak kodda değişiklik yapılarak dağıtım yasaktır
+- ❌ Fork ve Pull Request işlemleri değerlendirilmeyecektir
+- ❌ Kodun kopyalanarak başka projelerde kullanımı telif hakkı ihlalidir
+
+⚠️ **Dikkat**: Proje inceleme ve öğrenme amacıyla kullanılabilir, ancak herhangi bir üretim amaçlı kullanımı yasaktır.
 
 ---
 
 ## Atıf ve Referans
 
-Bu projeyi akademik çalışmalarda kullanıyorsanız lütfen şu şekilde atıf yapın:
+Bu projeyi çalışmalarınızda kullanıyorsanız lütfen şu şekilde atıf yapın:
 
 ```
-Aydın, B. C. (2026). I.A.N. - International Archaeology Network:
+Maya Okulları İncek Yerleşkesi Proje Ekibi (2026).
+I.A.N. - International Archaeology Network:
 Uluslararası Arkeolojik Koordinasyon ve Acil Müdahale Sistemi.
-[Eğitim Projesi]. https://github.com/burakcinaraydin/ian-network
+[Eğitim ve Araştırma Projesi]. https://github.com/burakcinaraydin/ian-network
 ```
 
 ---
@@ -264,12 +216,38 @@ Bu proje, kültürel mirasın korunmasına dikkat çekmek ve teknolojinin sosyal
 
 ---
 
+## Lisans
+
+Bu proje **Özel İnceleme Lisansı (Study-Only License)** altında lisanslanmıştır. Detaylı lisans metni için [LICENSE](LICENSE) dosyasını inceleyiniz.
+
+### İzin Verilen Kullanımlar:
+- ✅ Kaynak kodunun GitHub platformunda görüntülenmesi
+- ✅ Projenin yerel geliştirme ortamında incelenmek üzere indirilmesi ve çalıştırılması
+- ✅ Eğitim ve öğrenme amaçlı kod analizi
+- ✅ Akademik çalışmalarda referans kaynağı olarak kullanım
+- ✅ Eğitim kurumlarında ders materyali olarak kullanım
+
+### Yasak Kullanımlar:
+- ❌ **Ticari Kullanım**: Projenin ticari amaçlarla kullanımı kesinlikle yasaktır
+- ❌ **Proje Entegrasyonu**: Kaynak kodun kısmen veya tamamen başka projelere dahil edilmesi yasaktır
+- ❌ **Portfolyo Kullanımı**: Projenin kişisel portfolyo veya özgeçmişte kendi çalışması olarak gösterilmesi yasaktır
+- ❌ **Yarışma Katılımı**: Projenin başka yarışmalarda kullanılması yasaktır
+- ❌ **Türev Eser Oluşturma**: Projenin değiştirilerek yeni eser oluşturulması ve dağıtılması yasaktır
+- ❌ **Dağıtım**: Projenin üçüncü kişilere dağıtılması, satılması veya lisanslanması yasaktır
+
+⚠️ **Önemli Not**: Bu proje yalnızca inceleme ve öğrenme amacıyla kullanılabilir. Herhangi bir üretim ortamında veya kişisel projelerde kullanımı telif hakkı ihlali teşkil eder.
+
+---
+
 <div align="center">
 
-**© 2026  Maya Okulları Proje Ekibi- Tüm hakları saklıdır**
+**© 2026 Maya Okulları İncek Yerleşkesi Proje Ekibi**
+**Tüm Hakları Saklıdır - All Rights Reserved**
 
-Educational Project | Not for Commercial Use | Not for FLL Competition
+Study-Only License | Non-Commercial | Educational Use Only
 
-Made with Love for education
+⚠️ **Yasal Uyarı**: Bu proje yalnızca inceleme amaçlıdır. Üretim ortamında kullanımı telif hakkı ihlali teşkil eder.
+
+Made with ❤️ for cultural heritage preservation
 
 </div>
